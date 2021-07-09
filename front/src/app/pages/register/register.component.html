@@ -1,0 +1,55 @@
+<div class="row">
+
+  <div class="col-12">
+    <div *ngIf="isSignedUp; else signupForm" class="alert alert-success">
+      Votre compte à bien été créé!<br /><br />
+      Il ne vous reste plus qu'a valider votre adresse mail<br />
+      (Cliquez sur le lien que vous avez recu sur l'adresse email que vous venez de saisir pour ce compte)
+    </div>
+
+    <div *ngIf="isSignUpFailed" class="alert alert-warning">
+      La création du compte à échoué!<br />{{errorMessage}}
+    </div>
+    <div id="overlay">
+      <div class="spinner_overlay">
+        <i class="fa fa-spinner fa-spin" style="font-size:200px;color:red"></i>
+      </div>
+    </div>
+    <ng-template #signupForm>
+      <div class="row col-6" style="max-width:350px;">
+        <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+          <div class="form-group">
+            <label for="username">Nom d'utilisateur</label>
+            <input type="text" class="form-control" name="username" [(ngModel)]="form.username" #username="ngModel"
+              required />
+            <div *ngIf="f.submitted && username.invalid">
+              <div *ngIf="username.errors.required">Un nom d'utilisateur est requis</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" class="form-control" name="email" [(ngModel)]="form.email" #email="ngModel" required
+              email />
+            <div *ngIf="f.submitted && email.invalid">
+              <div *ngIf="email.errors.required">Une adresse email est requise</div>
+              <div *ngIf="email.errors.email">Cette adresse email n'est pas valide</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="password">Mot de passe</label>
+            <input type="password" class="form-control" name="password" [(ngModel)]="form.password" #password="ngModel"
+              required minlength="6" />
+            <div *ngIf="f.submitted && password.invalid">
+              <div *ngIf="password.errors.required">Un mot de passe est requis</div>
+              <div *ngIf="password.errors.minlength">Le mot de passe doit contenir au moins 6 characteres</div>
+            </div>
+          </div>
+          <div class="form-group">
+            <button class="btn ">S'enregistrer</button>
+
+          </div>
+        </form>
+      </div>
+    </ng-template>
+  </div>
+</div>

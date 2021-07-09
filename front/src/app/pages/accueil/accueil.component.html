@@ -1,0 +1,100 @@
+<div class="row navbar">
+
+  <div class="col-4">
+    <img (click)="visible=!visible" class="logo" src="../../../assets/logo-cresus.png"><br>
+  </div>
+  <div class="col-4 title">
+    <input type="text" class="form-control" (input)="filter(recherche)" placeholder="Rechercher"
+      [(ngModel)]="recherche">
+  </div>
+  <div class="col-2">
+
+  </div>
+  <div class="col-2">
+
+    <button *ngIf="visible" (click)="dashboard()" type="button" class="marge etiquette_btn_purple"> <i
+        class="fas fa-chart-line"></i></button>
+    <button  *ngIf="visible && nb_messages > 0" (click)="message = !message" type="button"
+      class="marge etiquette_btn_message">{{nb_messages}} <i class="far fa-envelope"></i></button>
+    <button (click)="creation()" type="button" class="marge etiquette_btn_gold"><i class="fas fa-plus"></i> Nouveau
+      Dossier</button>
+  </div>
+</div>
+
+
+
+<div *ngIf="message" class="row line_blue">
+  <div class="col-6 ">
+    <div *ngIf="messagesGreen.size > 0" class="etiquette_green">
+      <div *ngFor="let message of messagesGreen | keyvalue">
+        <i (click)="detailLink(message.key)" class="fas fa-pencil-alt"></i>
+        {{message.value}}
+        <i (click)="removeMessage(message.key)" class="fas fa-times"></i>
+
+      </div>
+    </div>
+  </div>
+  <div class="col-6 ">
+    <div *ngIf="messagesRed.size > 0" class="etiquette_red">
+      <div *ngFor="let message of messagesRed | keyvalue">
+        <i (click)="detailLink(message.key)" class="fas fa-pencil-alt"></i>
+        {{message.value}}
+        <i (click)="removeMessage(message.key)" class="fas fa-times"></i>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div *ngIf="!visible" class="row">
+  <app-table class="fusion" [data]="all" [selectedNb]="1000">
+  </app-table>
+</div>
+
+<div *ngIf="visible" class="row">
+  <div class="col-3 no_padding">
+    <button (click)="table = 'surendetes'" type="button" [ngClass]="{'onglet_selected': table === 'surendetes'}"
+      class="onglet_red">
+      {{surendetes.length}} bénéficiaires sur-endettés</button>
+  </div>
+  <div class="col-3 no_padding">
+    <button (click)="table = 'malendetes'" type="button" [ngClass]="{'onglet_selected': table === 'malendetes'}"
+      class="onglet_orange">
+      {{malendetes.length}} bénéficiaires mal-endettés</button>
+  </div>
+  <div class="col-3 no_padding">
+    <button (click)="table = 'preendetes'" type="button" [ngClass]="{'onglet_selected': table === 'preendetes'}"
+      class="onglet_gold">
+      {{preendetes.length}} bénéficiaires pré-endettés</button>
+  </div>
+  <div class="col-3 no_padding">
+    <button (click)="table = 'bienendetes'" type="button" [ngClass]="{'onglet_selected': table === 'bienendetes'}"
+      class="onglet_green">
+      {{bienendetes.length}} bénéficiaires non-endettés</button>
+  </div>
+
+  <div *ngIf="table == 'surendetes'" class="col-12 line_red">
+  </div>
+  <div *ngIf="table == 'malendetes'" class="col-12 line_orange">
+  </div>
+  <div *ngIf="table == 'preendetes'" class="col-12 line_gold">
+  </div>
+  <div *ngIf="table == 'bienendetes'" class="col-12 line_green">
+  </div>
+  <div *ngIf="table == 'surendetes'" class="col-12">
+    <app-table class="fusion" [data]="surendetes" [selectedNb]="10">
+    </app-table>
+  </div>
+  <div *ngIf="table == 'malendetes'" class="col-12">
+    <app-table class="fusion" [data]="malendetes" [selectedNb]="10">
+    </app-table>
+  </div>
+  <div *ngIf="table == 'preendetes'" class="col-12">
+    <app-table class="fusion" [data]="preendetes" [selectedNb]="10">
+    </app-table>
+  </div>
+  <div *ngIf="table == 'bienendetes'" class="col-12">
+    <app-table class="fusion" [data]="bienendetes" [selectedNb]="10">
+    </app-table>
+  </div>
+</div>

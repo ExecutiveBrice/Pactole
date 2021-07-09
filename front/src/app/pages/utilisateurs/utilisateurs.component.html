@@ -1,0 +1,32 @@
+<div class="row">
+  <div *ngIf="loggedIn && isAdmin" class="col-12">
+
+
+    <div *ngFor="let utilisateur of utilisateurs  | orderBy:'username':false " class="col-12">
+      <div class="col-2">
+        {{utilisateur.username}}
+      </div>
+      <div class="col-3">
+        {{utilisateur.email}}
+      </div>
+      <div class="col-1" (click)="locked(utilisateur)">
+        <i *ngIf="utilisateur.locked" class="fa fa-lock " ></i>
+        <i *ngIf="!utilisateur.locked" class="fa fa-unlock-alt " ></i>
+      </div>
+
+      <div class="col-4">
+        <div *ngFor="let role of roles " class="col-4" >
+            <button *ngIf="!utilisateur.userRoles" (click)="addRole(utilisateur, role)" class="btn btn-success">{{role}}</button>
+            <button *ngIf="utilisateur.userRoles" (click)="deleteRole(utilisateur, role)" class="btn btn-danger">{{role}}</button>
+        </div>
+      </div>
+
+      <div class="col-1" (click)="save(utilisateur)">
+        <button class="btn btn-success">S</button>
+      </div>
+      <div class="col-1" (click)="delete(utilisateur)">
+        <button class="btn btn-danger">X</button>
+      </div>
+    </div>
+  </div>
+</div>

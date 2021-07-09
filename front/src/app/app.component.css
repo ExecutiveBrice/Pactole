@@ -1,0 +1,14 @@
+.gros_titre {
+    font-size: xx-large;
+    color: honeydew;
+}
+
+    /* Fixes dropdown menus placed on the right side */
+    .ml-auto {
+        left: auto !important;
+        right: 0px;
+      }
+
+      .white{
+        color: white;
+      }

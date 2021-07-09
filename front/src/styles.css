@@ -1,0 +1,140 @@
+body {
+    font-size: 80%;
+    background-color : rgba(255, 255, 255, 0.65)
+}
+
+
+
+#overlay {
+    position: fixed;
+    display: none;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 2;
+    cursor: pointer;
+    font-size:200px;
+    color:red
+}
+
+
+.spinner_overlay{
+    top: 30vh;
+    left: 45vw;
+    position: absolute;
+}
+
+[class*='row'] {
+    margin: 0px;
+}
+
+.content-to-show{
+    display: block;
+}
+.content-to-show {
+    display: none;
+ }
+
+ @media (max-width: 600px) {                  
+    .content-to-hide {
+       display: none;
+    }
+    .content-to-show {
+        display: block;
+     }
+     .limited{
+        height: 100px;
+        overflow: hidden;
+        margin-bottom: 5px;
+    }
+ }
+
+ 
+[class*='col-'] {
+    float: left;
+    padding: 5px;
+}
+.container_2 {
+    -webkit-transform: rotate(90deg);
+    -moz-transform: rotate(90deg);
+    -o-transform: rotate(90deg);
+    -ms-transform: rotate(90deg);
+    transform: rotate(90deg);
+}
+
+.fusion{
+    width: 100%;
+}
+
+.title{
+    font-size: 1.2em;
+    text-align: center;
+    font-weight: bold;
+}
+.subtitle{
+    font-style: oblique;
+}
+.input-xs {
+    height: 22px;
+    font-size: 12px;
+    line-height: 1; /* If Placeholder of the input is moved up, rem/modify this. */
+    border-radius: 3px;
+}
+.input-full{
+    width: 100%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+.form-xs{
+    font-size: 12px;
+    padding-left: 5px;
+    border-radius: 3px;
+    border: none;
+    width: 100%;
+}
+
+.navbar{
+    color: white;
+    background-color: rgb(9, 36, 58);
+}
+
+.btn-xs{
+    font-size: 12px;
+    padding: 0%;
+    width: 100%;
+    background-color: #ffffff;
+
+}
+.nav_link{
+    color: white!important;
+}
+.panel{
+    padding: 0%;
+    background-color: #e6e6e6;
+    margin: 5px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); 
+}
+
+.bordered {
+    background-color: #9b9b9b;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: small;
+}
+
+
+
+.rayon {
+    background-color: rgba(241, 241, 241, 0.849);
+    border-width: 1px;
+    border-radius: 3px;
+    box-shadow: 5px 5px 1px 1px rgba(121, 120, 120, 0.75);
+    height: 100%;
+}
+
+.carre {
+    padding: 10px;
+    min-height: 50px;
+}

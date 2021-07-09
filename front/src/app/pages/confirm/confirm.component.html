@@ -1,0 +1,14 @@
+<div class="row">
+
+  <div class="col-12" >
+    <div *ngIf="isConfirmed == undefined" >
+      Votre confirmation est en cours ...
+    </div>
+    <div *ngIf="!isConfirmed" class="alert alert-warning">
+      Confirmation échouée {{errorMessage}}
+    </div>
+    <div *ngIf="isConfirmed" class="alert alert-success">
+      Confirmation éffectuée vous pouvez vous connecter
+    </div>
+  </div>
+</div>

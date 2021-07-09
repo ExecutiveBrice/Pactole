@@ -1,0 +1,1379 @@
+<div class="row navbar">
+  <div class="col-3">
+    <img (click)="visible=!visible" class="logo" src="../../../assets/logo-cresus.png"><br>
+    <a class="nav_link" href="#" (click)="annuler()"><i class="fas fa-arrow-left"></i>Retour à la liste</a>
+
+  </div>
+  <div class="col-6 title">
+    <h3>
+      {{dossier.beneficiaire.prenom}} {{dossier.beneficiaire.nom}} / {{dossier.dossier_id}} / {{dossier.partenaire.nom}}
+    </h3>
+  </div>
+  <div class="col-3">
+
+  </div>
+</div>
+<div class="row">
+  <div class="col-12">
+    <img *ngIf="!budget" (click)="budget=!budget" class="bandeau" src="../../../assets/info.png">
+    <img *ngIf="budget" (click)="budget=!budget" class="bandeau" src="../../../assets/budget.png">
+  </div>
+</div>
+
+<div *ngIf="!budget" class="row">
+
+
+  <div class="col-6">
+    <div class="row">
+      <div class="col-6">
+        <div class="col-12 title_section">
+          Informations du bénéficiaire
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-panel col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Nature de la difficulté finianciere</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.nature"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-2">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Civilité</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.sexe"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-4">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Date Naissance</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.date_naissance"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Nom</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.nom"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Prenom</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.prenom"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Adresse</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.adresse"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Complement d'adresse</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default"
+          [(ngModel)]="dossier.beneficiaire.complement_adresse" aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Pays</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.pays"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-2">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">CP</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.code_postal"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-4">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Ville</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.ville"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-3">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Tel fixe</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.telephone_fixe"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-3">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Tel port</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default"
+          [(ngModel)]="dossier.beneficiaire.telephone_mobile" aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Mail</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.email"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Type de profession</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.profession"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Type de logement</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.beneficiaire.type_logement"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Situation familliale</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default"
+          [(ngModel)]="dossier.beneficiaire.situation_familiale" aria-describedby="inputGroup-sizing-default">
+      </div>
+
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Provenance du contact</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.partenaire.nom"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-group col-9">
+          <div class="form-label">
+            <span class="form-title" id="inputGroup-sizing-default">Nombre de personnes à charge</span>
+          </div>
+        </div>
+
+        <div class="input-group col-3">
+
+          <input type="number" class="form-control " aria-label="Default"
+            [(ngModel)]="dossier.beneficiaire.personnes_a_charge" aria-describedby="inputGroup-sizing-default">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="row">
+      <div class="col-12 title_section">
+        Informations du conjoint
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-group col-2">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Civilité</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.sexe"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-4">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Date Naissance</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.date_naissance"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Nom</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.nom"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Prenom</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.prenom"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Tel port</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.telephone_fixe"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Mail</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.email"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Type de profession</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.profession"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+      <div class="input-group col-6">
+        <div class="input-label">
+          <span class="input-title" id="inputGroup-sizing-default">Type de logement</span>
+        </div>
+        <input type="text" class="input-control" aria-label="Default" [(ngModel)]="dossier.conjoint.type_logement"
+          aria-describedby="inputGroup-sizing-default">
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="col-6">
+    <div class="row">
+
+
+      <div class="col-12 title_section">
+        Synthèse du budget
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-3">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            REVENUS
+          </div>
+          <div class="green">
+            {{tot_revenus}} €
+          </div>
+
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            CHARGES FIXES
+          </div>
+          <div class="orange">
+            {{tot_charges}} €
+          </div>
+
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            CREDITS ({{dossier.credits.length}})
+          </div>
+          <div class="red">
+            {{tot_credit_mensualites}} €
+          </div>
+
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="etiquette_rav">
+          <div class="title_etiquette">
+            RESTE A VIVRE
+          </div>
+          <div class="reste_a_vivre">
+            {{reste_a_vivre}} €
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="visible" class="row">
+
+
+      <div class="col-12 title_section">
+        Classification
+      </div>
+    </div>
+    <div *ngIf="visible" class="row">
+      <div class="col-3">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            RAV
+          </div>
+          <div *ngIf="cat_theorique == 'A'" class="red">
+            SUR-ENDETTE
+          </div>
+          <div *ngIf="cat_theorique == 'B'" class="orange ">
+            MAL-ENDETTE
+          </div>
+          <div *ngIf="cat_theorique == 'C'" class="yellow">
+            PRE-ENDETTE
+          </div>
+          <div *ngIf="cat_theorique == 'D'" class="green">
+            NON-ENDETTE
+          </div>
+
+        </div>
+      </div>
+      <div class="col-3">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            PREDITE
+          </div>
+          <div *ngIf="dossier.cat_IA == 3" class="red">
+            SUR-ENDETTE
+          </div>
+          <div *ngIf="dossier.cat_IA == 2" class="orange ">
+            MAL-ENDETTE
+          </div>
+          <div *ngIf="dossier.cat_IA == 1" class="yellow">
+            PRE-ENDETTE
+          </div>
+          <div *ngIf="dossier.cat_IA == 0" class="green">
+            NON-ENDETTE
+          </div>
+
+        </div>
+      </div>
+      <div class="col-6">
+        <div class="etiquette_critere">
+          <div class="title_etiquette">
+            CRITERES
+          </div>
+          <div class="grey" *ngFor="let critere of dossier.criteres">
+            {{critere}}
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+    <div *ngIf="visible" class="row">
+      <div class="col-6">
+
+        <div style="display: block">
+          <canvas baseChart [datasets]="nuage_point_Data" [labels]="nuage_point_Labels" [options]="nuage_point_Options"
+            [colors]="nuage_point_Colors" [legend]="nuage_point_Legend" [chartType]="nuage_point_Type">
+          </canvas>
+        </div>
+
+      </div>
+      <div class="col-6">
+
+        <canvas baseChart [data]="pieChartData" [colors]="pieChartColors" [chartType]="pieChartType"
+          [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
+        </canvas>
+
+      </div>
+
+    </div>
+
+    <div class="row">
+      <div class="col-6 title_section">
+        Historique des rendez-vous
+      </div>
+
+      <div class="col-6 title_section">
+        Prochain rendez-vous
+      </div>
+
+      <div *ngIf="dossier.rendez_vous.length > 0" class="col-6">
+        <div *ngFor="let rdv of dossier.rendez_vous">
+          {{rdv.date_debut_rdv}}
+        </div>
+      </div>
+
+      <div *ngIf="dossier.rendez_vous.length > 0" class="col-6">
+        <div>
+          {{dossier.rendez_vous[dossier.rendez_vous.length-1].date_debut_rdv}}
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+</div>
+
+
+
+
+<div *ngIf="budget" class="row">
+
+
+  <div class="col-3">
+    <div class="col-12 title_section">
+      Revenus Mensuels
+    </div>
+    <div class="col-12 input_nopadding" *ngFor="let revenu of dossier.revenus">
+      <div class="row">
+        <div class="col-6">
+          {{revenu.nom}}
+        </div>
+        <div class="col-1">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="col-4">
+          <input type="number" class="input_fullsize" [(ngModel)]="revenu.montant">
+        </div>
+        <div (click)="remove_from_list('revenus',revenu.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-7">
+          <input type="text" class="input_fullsize" [(ngModel)]="newrevenu.nom">
+        </div>
+
+        <div class="col-4">
+          <input type="number" class="input_fullsize" placeholder="- €" [(ngModel)]="newrevenu.montant">
+        </div>
+        <div (click)="add_to_list(dossier.revenus,newrevenu)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 input_black">
+      <div class="row">
+        <div class="col-8">
+          TOTAL REVENUS MENSUELS
+        </div>
+
+        <div class="col-4">
+          {{tot_revenus}} €
+        </div>
+
+      </div>
+    </div>
+    <div class="col-12 title_section">
+      Charges Mensuelles
+    </div>
+    <div class="col-12 input_nopadding" *ngFor="let charge of dossier.charges | filter:'MAISON':false:'type'">
+      <div class="row">
+        <div class="col-6">
+          {{charge.nom}}
+        </div>
+        <div class="col-1">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="col-4">
+          <input type="number" class="input_fullsize" [(ngModel)]="charge.montant">
+        </div>
+        <div (click)="remove_from_list('charges',charge.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-7">
+          <input type="text" class="input_fullsize" [(ngModel)]="newCharge1.nom">
+        </div>
+
+        <div class="col-4">
+          <input type="number" class="input_fullsize" placeholder="- €" [(ngModel)]="newCharge1.montant">
+        </div>
+        <div (click)="newCharge1.type='MAISON'; add_to_list(dossier.charges,newCharge1)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 ">
+      <div class="row">
+        <div class="col-7">
+          SOUS TOTAL MAISON
+        </div>
+
+        <div class="col-4 input_black">
+          {{sous_tot_charge_maison}} €
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+    <div class="col-12 input_nopadding" *ngFor="let charge of dossier.charges | filter:'ENFANTS':false:'type'">
+      <div class="row">
+        <div class="col-6">
+          {{charge.nom}}
+        </div>
+        <div class="col-1">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="col-4">
+          <input type="number" class="input_fullsize" [(ngModel)]="charge.montant">
+        </div>
+        <div (click)="remove_from_list('charges',charge.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-7">
+          <input type="text" class="input_fullsize" [(ngModel)]="newCharge2.nom">
+        </div>
+
+        <div class="col-4">
+          <input type="number" class="input_fullsize" placeholder="- €" [(ngModel)]="newCharge2.montant">
+        </div>
+        <div (click)="newCharge2.type='ENFANTS'; add_to_list(dossier.charges,newCharge2)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 ">
+      <div class="row">
+        <div class="col-7">
+          SOUS TOTAL ENFANTS
+        </div>
+
+        <div class="col-4 input_black">
+          {{sous_tot_charge_enfants}} €
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="col-12 input_nopadding" *ngFor="let charge of dossier.charges | filter:'ASSURANCES':false:'type'">
+      <div class="row">
+        <div class="col-6">
+          {{charge.nom}}
+        </div>
+        <div class="col-1">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="col-4">
+          <input type="number" class="input_fullsize" [(ngModel)]="charge.montant">
+        </div>
+        <div (click)="remove_from_list('charges',charge.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-7">
+          <input type="text" class="input_fullsize" [(ngModel)]="newCharge3.nom">
+        </div>
+
+        <div class="col-4">
+          <input type="number" class="input_fullsize" placeholder="- €" [(ngModel)]="newCharge3.montant">
+        </div>
+        <div (click)="newCharge3.type='ASSURANCES'; add_to_list(dossier.charges,newCharge3)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 ">
+      <div class="row">
+        <div class="col-7">
+          SOUS TOTAL ASSURANCES
+        </div>
+
+        <div class="col-4 input_black">
+          {{sous_tot_charge_assurances}} €
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+    <div class="col-12 input_nopadding" *ngFor="let charge of dossier.charges | filter:'IMPOTS':false:'type'">
+      <div class="row">
+        <div class="col-6">
+          {{charge.nom}}
+        </div>
+        <div class="col-1">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="col-4">
+          <input type="number" class="input_fullsize" [(ngModel)]="charge.montant">
+        </div>
+        <div (click)="remove_from_list('charges',charge.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-7">
+          <input type="text" class="input_fullsize" [(ngModel)]="newCharge4.nom">
+        </div>
+
+        <div class="col-4">
+          <input type="number" class="input_fullsize" placeholder="- €" [(ngModel)]="newCharge4.montant">
+        </div>
+        <div (click)="newCharge4.type='IMPOTS'; add_to_list(dossier.charges,newCharge4)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 ">
+      <div class="row">
+        <div class="col-7">
+          SOUS TOTAL IMPOTS
+        </div>
+
+        <div class="col-4 input_black">
+          {{sous_tot_charge_impots}} €
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="col-12 input_nopadding" *ngFor="let charge of dossier.charges | filter:'DIVERS':false:'type'">
+      <div class="row">
+        <div class="col-6">
+          {{charge.nom}}
+        </div>
+        <div class="col-1">
+          <i class="fas fa-pencil-alt"></i>
+        </div>
+        <div class="col-4">
+          <input type="number" class="input_fullsize" [(ngModel)]="charge.montant">
+        </div>
+        <div (click)="remove_from_list('charges',charge.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-7">
+          <input type="text" class="input_fullsize" [(ngModel)]="newCharge5.nom">
+        </div>
+
+        <div class="col-4">
+          <input type="number" class="input_fullsize" placeholder="- €" [(ngModel)]="newCharge5.montant">
+        </div>
+        <div (click)="newCharge5.type='DIVERS'; add_to_list(dossier.charges,newCharge5)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 ">
+      <div class="row">
+        <div class="col-7">
+          SOUS TOTAL DIVERS
+        </div>
+
+        <div class="col-4 input_black">
+          {{sous_tot_charge_divers}} €
+        </div>
+        <div class="col-1">
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+
+
+
+    <div class="col-12 input_black">
+      <div class="row">
+        <div class="col-8">
+          TOTAL CHARGES MENSUELLES
+        </div>
+
+        <div class="col-4">
+          {{tot_charges}} €
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+
+
+  <div class="col-7">
+    <div class="col-12 title_section">
+      Crédits à la consomation en cours
+    </div>
+
+    <div class="col-12 input_nopadding">
+      <div class="row input_nopadding">
+        <div class="col-11 input_nopadding">
+          <div class="col-2">
+            Type
+          </div>
+          <div class="col-2">
+            Organisme
+          </div>
+          <div class="col-2">
+            Mensualité
+          </div>
+          <div class="col-2">
+            K restant dû
+          </div>
+          <div class="col-2">
+            Date d'octroi
+          </div>
+          <div class="col-2">
+            Taux
+          </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 input_nopadding" *ngFor="let credit of dossier.credits | filter:'R':false:'type'">
+      <div class="row">
+        <div class="col-11">
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.type">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.organisme">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.mensualite">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.crd">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.date_octroi">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.taux">
+          </div>
+        </div>
+        <div (click)="remove_from_list('credits',credit.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 input_nopadding" *ngFor="let credit of dossier.credits | filter:'Renouvelable':false:'type'">
+      <div class="row">
+        <div class="col-11">
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.type">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.organisme">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.mensualite">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.crd">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.date_octroi">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.taux">
+          </div>
+        </div>
+        <div (click)="remove_from_list('credits',credit.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-11">
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="newcreditConso.type">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="newcreditConso.organisme">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="newcreditConso.mensualite">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="newcreditConso.crd">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="newcreditConso.date_octroi">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="newcreditConso.taux">
+          </div>
+        </div>
+        <div (click)="add_to_list(dossier.credits,newcreditConso)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12 input_nopadding">
+      <div class="row input_nopadding">
+        <div class="col-11 input_nopadding">
+          <div class="col-2">
+            SOUS TOTAL
+          </div>
+          <div class="col-2">
+
+          </div>
+          <div class="col-2 input_black">
+            {{sous_tot_credit_conso_mensualites}} €
+          </div>
+          <div class="col-2 input_black">
+            {{sous_tot_credit_conso_crd}} €
+          </div>
+          <div class="col-2">
+
+          </div>
+          <div class="col-2">
+
+          </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+      </div>
+    </div>
+
+
+
+    <div class="col-12 title_section">
+      Crédits immobiliers et autres
+    </div>
+
+
+    <div class="col-12 input_nopadding">
+      <div class="row input_nopadding">
+        <div class="col-11 input_nopadding">
+          <div class="col-2">
+            Type
+          </div>
+          <div class="col-2">
+            Organisme
+          </div>
+          <div class="col-2">
+            Mensualité
+          </div>
+          <div class="col-2">
+            K restant dû
+          </div>
+          <div class="col-2">
+            Date d'octroi
+          </div>
+          <div class="col-2">
+            Taux
+          </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+      </div>
+    </div>
+
+
+    <div class="col-12 input_nopadding" *ngFor="let credit of dossier.credits | filter:'I':false:'type'">
+      <div class="row">
+        <div class="col-11">
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.type">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.organisme">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.mensualite">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.crd">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.date_octroi">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.taux">
+          </div>
+        </div>
+        <div (click)="remove_from_list('credits',credit.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 input_nopadding" *ngFor="let credit of dossier.credits | filter:'Sans Hypothèque':false:'type'">
+      <div class="row">
+        <div class="col-11">
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.type">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.organisme">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.mensualite">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.crd">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.date_octroi">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.taux">
+          </div>
+        </div>
+        <div (click)="remove_from_list('credits',credit.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 input_nopadding" *ngFor="let credit of dossier.credits | filter:'A':false:'type'">
+      <div class="row">
+        <div class="col-11">
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.type">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.organisme">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.mensualite">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.crd">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="credit.date_octroi">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="credit.taux">
+          </div>
+        </div>
+        <div (click)="remove_from_list('credits',credit.id)" class="col-1">
+          <i class="fas fa-trash-alt"></i>
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-12 input_nopadding">
+      <div class="row">
+        <div class="col-11">
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="newcreditImmo.type">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="newcreditImmo.organisme">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="newcreditImmo.mensualite">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="newcreditImmo.crd">
+          </div>
+          <div class="col-2">
+            <input type="text" class="input_fullsize" [(ngModel)]="newcreditImmo.date_octroi">
+          </div>
+          <div class="col-2">
+            <input type="number" class="input_fullsize" [(ngModel)]="newcreditImmo.taux">
+          </div>
+        </div>
+        <div (click)="add_to_list(dossier.credits,newcreditImmo)" class="col-1">
+          <i class="far fa-check-circle"></i>
+        </div>
+      </div>
+    </div>
+
+
+
+
+
+    <div class="col-12 input_nopadding">
+      <div class="row input_nopadding">
+        <div class="col-11 input_nopadding">
+          <div class="col-2">
+            SOUS TOTAL
+          </div>
+          <div class="col-2">
+
+          </div>
+          <div class="col-2 input_black">
+            {{sous_tot_credit_immo_mensualites}} €
+          </div>
+          <div class="col-2 input_black">
+            {{sous_tot_credit_immo_crd}} €
+          </div>
+          <div class="col-2">
+
+          </div>
+          <div class="col-2">
+
+          </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+      </div>
+    </div>
+
+
+
+
+    <div class="col-12 input_nopadding">
+      <div class="row input_nopadding input_black">
+        <div class="col-11 input_nopadding">
+          <div class="col-4">
+            TOTAL CREDITS EN COURS
+
+
+          </div>
+          <div class="col-2">
+            {{tot_credit_mensualites}} €
+          </div>
+          <div class="col-2">
+            {{tot_credit_crd}} €
+          </div>
+          <div class="col-2">
+
+          </div>
+          <div class="col-2">
+
+          </div>
+        </div>
+        <div class="col-1">
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  <div class="col-2">
+    <div class="row">
+      <div class="col-12 title_section">
+        Synthèse du budget
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            REVENUS
+          </div>
+          <div class="green">
+            {{tot_revenus}} €
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            CHARGES FIXES
+          </div>
+          <div class="orange">
+            {{tot_charges}} €
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            CREDITS ({{dossier.credits.length}})
+          </div>
+          <div class="red">
+            {{tot_credit_mensualites}} €
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="etiquette_rav">
+          <div class="title_etiquette">
+            RESTE A VIVRE
+          </div>
+          <div class="reste_a_vivre">
+            {{reste_a_vivre}} €
+          </div>
+
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            ENDETTEMENT
+          </div>
+          <div class="classification">
+            {{taux_endetement | number : '1.0-0'}} %
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+
+    <div *ngIf="visible" class="row">
+
+
+      <div class="col-12 title_section">
+        Classification
+      </div>
+    </div>
+    <div *ngIf="visible" class="row">
+      <div class="col-12">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            RAV
+          </div>
+          <div *ngIf="cat_theorique == 'A'" class="red">
+            SUR-ENDETTE
+          </div>
+          <div *ngIf="cat_theorique == 'B'" class="orange ">
+            MAL-ENDETTE
+          </div>
+          <div *ngIf="cat_theorique == 'C'" class="yellow">
+            PRE-ENDETTE
+          </div>
+          <div *ngIf="cat_theorique == 'D'" class="green">
+            NON-ENDETTE
+          </div>
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="etiquette">
+          <div class="title_etiquette">
+            PREDITE
+          </div>
+          <div *ngIf="dossier.cat_IA == 3" class="red">
+            SUR-ENDETTE
+          </div>
+          <div *ngIf="dossier.cat_IA == 2" class="orange ">
+            MAL-ENDETTE
+          </div>
+          <div *ngIf="dossier.cat_IA == 1" class="yellow">
+            PRE-ENDETTE
+          </div>
+          <div *ngIf="dossier.cat_IA == 0" class="green">
+            NON-ENDETTE
+          </div>
+
+
+        </div>
+      </div>
+      <div class="col-12">
+        <div class="etiquette_critere">
+          <div class="title_etiquette">
+            CRITERES
+          </div>
+          <div class="grey" *ngFor="let critere of dossier.criteres">
+            {{critere}}
+          </div>
+
+        </div>
+      </div>
+
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<div class="row bouton_sticky">
+  <div class="col-3">
+
+  </div>
+
+  <div class="col-6">
+    <div class="col-4">
+      <button (click)="annuler()" type="button" class="marge etiquette_btn_transparent">Annuler</button>
+
+    </div>
+    <div class="col-4">
+      <button (click)="update()" type="button" class="marge etiquette_btn_gold"><i class="fas fa-plus"></i>
+        Enregister</button>
+
+    </div>
+    <div class="col-3">
+
+
+
+      <button *ngIf="visible" (click)="test()" type="button" class="marge etiquette_btn_purple">Evaluer</button>
+    </div>
+
+  </div>
+  <div class="col-4">
+
+  </div>
+</div>

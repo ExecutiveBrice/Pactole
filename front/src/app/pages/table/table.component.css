@@ -1,0 +1,7 @@
+.selectedColumn{
+    border-bottom: 5px outset rgba(28,110,164,0.56);
+}
+.line{
+    border-bottom: 2px rgba(0, 0, 0, 0.56);
+    box-shadow: 0px 5px 5px lightgray;
+}

@@ -1,0 +1,149 @@
+.selectedColumn{
+    border-bottom: 5px outset rgba(28,110,164,0.56);
+
+}
+
+.fusion{
+    width: 100%;
+}
+
+
+.etiquette_btn_gold{
+    width: 200px;
+    color: white;
+    background-color: goldenrod;
+    height: 40px;
+    border-style: unset;
+    border-radius: 30px;
+    box-shadow: 2px 5px 10px 5px rgba(90, 90, 90, 0.2);
+}
+
+
+
+.etiquette_btn_purple{
+    width: 100px;
+    color: white;
+    background-color: purple;
+    height: 40px;
+    border-style: unset;
+    border-radius: 30px;
+    box-shadow: 2px 5px 10px 5px rgba(90, 90, 90, 0.2);
+}
+
+
+.etiquette_btn_message{
+    width: 100px;
+    color: white;
+    background-color: green;
+    height: 40px;
+    border-style: unset;
+    border-radius: 30px;
+    box-shadow: 2px 5px 10px 5px rgba(90, 90, 90, 0.2);
+}
+
+
+.etiquette_red{
+    margin: 10px;
+    font-size: large;
+    padding: 20px;
+    background-color: rgb(240, 88, 88);
+    border-style: unset;
+    border-radius: 10px;
+
+
+    
+}
+
+.etiquette_green{
+    margin: 10px;
+    font-size: large;
+    padding: 20px;
+    background-color: rgb(72, 156, 60);
+    border-style: unset;
+    border-radius: 10px;
+
+}
+
+
+
+
+
+
+.no_padding{
+    padding: 0px;
+}
+
+
+
+
+
+.onglet_red{
+    width: 100%;
+    font-size: large;
+    color: white;
+    background-color: rgb(9, 36, 58);
+    height: 40px;
+    border-style: unset;
+
+    outline: none;
+}
+.onglet_orange{
+    width: 100%;
+    font-size: large;
+    color: white;
+    background-color: rgb(9, 36, 58);
+    height: 40px;
+    border-style: unset;
+    outline: none;
+}
+.onglet_gold{
+    width: 100%;
+    font-size: large;
+    color: white;
+    background-color: rgb(9, 36, 58);
+    height: 40px;
+    border-style: unset;
+
+    outline: none;
+}
+.onglet_green{
+    width: 100%;
+    font-size: large;
+    color: white;
+    background-color: rgb(9, 36, 58);
+    height: 40px;
+    border-style: unset;
+
+    outline: none;
+}
+.line_red{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 38, 38, 0.7)
+}
+.line_orange{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 136, 38, 0.7);
+}
+.line_gold{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(255, 222, 38, 0.7);
+}
+.line_green{
+    width: 100%;
+    height: 10px;
+    background-color: rgba(89, 153, 51, 0.7);
+}
+
+.line_blue{
+    background-color: rgb(9, 36, 58);
+}
+.onglet_selected{
+    background-color: rgb(28, 113, 184);
+    -moz-box-shadow:    inset 0px 5px 5px 2px #000000;
+    -webkit-box-shadow: inset 0px 5px 5px 2px #000000;
+    box-shadow:         inset 0px 5px 5px 2px #000000;
+
+}

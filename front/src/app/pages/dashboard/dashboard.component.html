@@ -1,0 +1,46 @@
+<div class="row navbar ">
+  <div class="col-3">
+    <img class="logo" src="../../../assets/logo-cresus.png"><br>
+    <a class="nav_link" href="#" (click)="annuler()"><i class="fas fa-arrow-left"></i>Retour à la liste</a>
+
+  </div>
+  <div class="col-6 title">
+
+  </div>
+  <div class="col-3">
+
+  </div>
+
+</div>
+
+
+<div class="row">
+  <div class="col-5">
+    <div class="row">
+      <div class="col-12">
+        <div style="display: block">
+          <canvas baseChart [datasets]="nuage_point_Data" [labels]="nuage_point_Labels" [options]="nuage_point_Options"
+            [colors]="nuage_point_Colors" [legend]="nuage_point_Legend" [chartType]="nuage_point_Type">
+          </canvas>
+        </div>
+      </div>
+      <div class="col-12">
+        <div style="display: block">
+          <canvas baseChart [datasets]="repart_tot_Data" [labels]="repart_tot_Labels" [options]="repart_tot_Options"
+            [legend]="repart_tot_Legend" [chartType]="repart_tot_Type">
+          </canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-7">
+    
+
+    <div style="display: block;">
+      <canvas baseChart [data]="doughnutChartData" [labels]="doughnutChartLabels" [chartType]="doughnutChartType" [options]="doughnutOptions">
+      </canvas>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,66 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th [ngClass]="{'selectedColumn': filterColumn === 'dossier_id'}" (click)="selectColumn('dossier_id')">N° dossier</th>
+      <th [ngClass]="{'selectedColumn': filterColumn === 'beneficiaire.prenom'}" (click)="selectColumn('beneficiaire.prenom')">Prenom</th>
+      <th [ngClass]="{'selectedColumn': filterColumn === 'beneficiaire.nom'}" (click)="selectColumn('beneficiaire.nom')">Nom</th>
+
+
+      <th [ngClass]="{'selectedColumn': filterColumn === 'beneficiaire.code_postal'}" (click)="selectColumn('beneficiaire.code_postal')">CP</th>
+      <th [ngClass]="{'selectedColumn': filterColumn === 'beneficiaire.telephone_fixe'}" (click)="selectColumn('beneficiaire.telephone_fixe')">
+        N°tel fixe</th>
+      <th [ngClass]="{'selectedColumn': filterColumn === 'beneficiaire.telephone_mobile'}"
+        (click)="selectColumn('beneficiaire.telephone_mobile')">N°tel portable</th>
+      <th [ngClass]="{'selectedColumn': filterColumn === 'partenaire.nom'}" (click)="selectColumn('partenaire.nom')">Partenaire</th>
+      <th [ngClass]="{'selectedColumn': filterColumn === 'structure.nom'}" (click)="selectColumn('structure.nom')">Structure Crésus
+      </th>
+
+      <th [ngClass]="{'selectedColumn': filterColumn === 'rendez_vous'}" (click)="selectColumn('rendez_vous')">Date prochain rdv
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr class="line"
+      *ngFor="let dossier of data | orderBy:filterColumn:orderWay  | slice: (page-1) * selectedNb : (page-1) * selectedNb + selectedNb">
+      <td>{{dossier.dossier_id}}</td>
+      <td>{{dossier.beneficiaire.prenom}}</td>
+      <td>{{dossier.beneficiaire.nom}}</td>
+      <td>{{dossier.beneficiaire.code_postal}}</td>
+      <td>{{dossier.beneficiaire.telephone_fixe}}</td>
+      <td>{{dossier.beneficiaire.telephone_mobile}}</td>
+      <td>{{dossier.partenaire.nom}}</td>
+      <td>{{dossier.structure.nom}}</td>
+      <td>{{dossier.rendez_vous.length>0?dossier.rendez_vous[dossier.rendez_vous.length-1].date_debut_rdv:"-"}}</td>
+      <td (click)="detailLink(dossier.dossier_id)" >
+        <i class="fas fa-pencil-alt"></i>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+
+
+
+
+
+
+
+<div class="row">
+  <div class="col-2">
+  </div>
+  <div class="col-6">
+    <ngb-pagination class="d-flex justify-content-center" size="sm" [(page)]="page" [pageSize]="selectedNb"
+      [maxSize]="5" [rotate]="true" [ellipses]="false" [boundaryLinks]="true"
+      [collectionSize]="(data | filter:filterString:true:filterColumn).length">
+    </ngb-pagination>
+  </div>
+  <div class="col-4">
+    <div ngbDropdown class="d-inline-block">
+      <button class="btn btn-sm btn-outline-secondary btn-block" id="dropdownBasic1" ngbDropdownToggle>{{selectedNb}}
+        lignes par page</button>
+      <div ngbDropdownMenu aria-labelledby="dropdownBasic1">
+        <button ngbDropdownItem *ngFor="let item of listNbPages" (click)="selectedNb = item">{{item}}</button>
+      </div>
+    </div>
+  </div>
+</div>

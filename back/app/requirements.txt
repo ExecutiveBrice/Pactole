@@ -1,0 +1,9 @@
+flask
+numpy
+tensorflow
+matplotlib
+flask_mysqldb
+plac
+flask_cors
+unidecode
+pandas
